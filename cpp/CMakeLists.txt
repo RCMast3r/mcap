@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.15...3.30)
 project(mcap_cmake LANGUAGES CXX)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 add_library(mcap INTERFACE)
 
 find_package(PkgConfig REQUIRED)
@@ -27,7 +29,7 @@ install(TARGETS mcap
 # you can have multiple targets under the same namespace
 install(EXPORT mcapTargets
   FILE mcapTargets.cmake
-  NAMESPACE mcap::  
+  NAMESPACE mcap::
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/mcap
 )
 
