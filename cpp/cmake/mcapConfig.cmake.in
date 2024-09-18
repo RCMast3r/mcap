@@ -1,9 +1,12 @@
 @PACKAGE_INIT@
 
-# if you have find_package calls, use find_dependency() here with the package
-# that you need to find_package() for. this handles transitive dep finding so
-# your downstream cmake doesnt have to `find_package()` it instead gets done
-# upon package configuration
+if (NOT ${lz4_FOUND})
+    find_dependency(lz4)
+endif()
+
+if(NOT ${zstd_FOUND})
+    find_dependency(zstd)
+endif()
 
 include("${CMAKE_CURRENT_LIST_DIR}/mcapTargets.cmake")
 

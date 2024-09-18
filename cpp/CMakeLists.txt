@@ -4,10 +4,15 @@ project(mcap_cmake LANGUAGES CXX)
 
 add_library(mcap INTERFACE)
 
+find_package(lz4 REQUIRED)
+find_package(zstd REQUIRED)
+
 target_include_directories(mcap INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/mcap/include/mcap>
     $<INSTALL_INTERFACE:include/mcap>
 )
+
+target_link_libraries(mcap INTERFACE LZ4::lz4 zstd::libzstd)
 
 include(GNUInstallDirs)
 install(TARGETS mcap
