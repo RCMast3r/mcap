@@ -5,6 +5,7 @@ add_library(mcap INTERFACE)
 
 find_package(PkgConfig REQUIRED)
 find_package(zstd REQUIRED)
+pkg_check_modules(lz4 REQUIRED IMPORTED_TARGET liblz4)
 
 target_include_directories(mcap INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/mcap/include/mcap>

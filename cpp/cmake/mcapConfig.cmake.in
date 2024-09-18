@@ -1,7 +1,8 @@
 @PACKAGE_INIT@
 
-if (NOT ${lz4_FOUND})
-    find_dependency(lz4)
+if (NOT ${PkgConfig_FOUND})
+    find_dependency(PkgConfig)
+    pkg_check_modules(lz4 REQUIRED IMPORTED_TARGET liblz4)
 endif()
 
 if(NOT ${zstd_FOUND})
