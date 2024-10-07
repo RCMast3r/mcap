@@ -14,7 +14,7 @@ target_include_directories(mcap INTERFACE
     $<INSTALL_INTERFACE:include/mcap>
 )
 
-target_link_libraries(mcap INTERFACE PkgConfig::lz4 zstd::libzstd)
+target_link_libraries(mcap INTERFACE PkgConfig::lz4 zstd::libzstd_shared)
 
 include(GNUInstallDirs)
 install(TARGETS mcap
